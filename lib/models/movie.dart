@@ -33,6 +33,24 @@ class Movie {
   double voteAverage;
   int voteCount;
 
+  String? heroId;
+
+  get fullPosterUrl {
+    if (posterPath != null) {
+      return 'https://image.tmdb.org/t/p/w500$posterPath';
+    } else {
+      return 'https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png';
+    }
+  }
+
+  get fullBackDropUrl {
+    if (backdropPath != null) {
+      return 'https://image.tmdb.org/t/p/w500$backdropPath';
+    } else {
+      return 'https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png';
+    }
+  }
+
   factory Movie.fromJson(String str) => Movie.fromMap(json.decode(str));
 
   factory Movie.fromMap(Map<String, dynamic> json) => Movie(
